@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Vollkorn:ital,wght@0,700;1,400&display=swap");
+
+.estrutura {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Montserrat", sans-serif;
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    "header header header"
+    "sidenav content anuncio"
+    "footer footer footer";
+
+  .header {
+    grid-area: header;
+    background: linear-gradient(135deg, #8844ee, #b07dfd);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    z-index: 3;
+  }
+
+  .header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header nav a {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-weight: 800;
+    font-size: 1.125em;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: 0.1s;
+  }
+
+  .header nav a:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .header li + li {
+    margin-left: 30px;
+  }
+
+  .logo {
+    max-width: 200px;
+  }
+
+  .sidenav {
+    grid-area: sidenav;
+    background: #fafbfc;
+    padding: 30px;
+
+    li a {
+      display: block;
+      min-height: 60px;
+      max-width: 100px;
+      margin: 0 auto 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+      transition: 0.1s ease-out;
+    }
+
+    li a:hover {
+      background: #b07dfb;
+    }
+  }
+
+  .content {
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    padding: 30px;
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      letter-spacing: -0.005em;
+      color: rgba(0, 0, 0, 0.7);
+      font-weight: 800;
+    }
+
+    .informacoes {
+      p + p {
+        margin-top: 30px;
+      }
+    }
+
+    .destaque {
+      font-size: 0.775em;
+      color: #b07dfb;
+      max-width: 18em;
+      font-weight: 800;
+      position: relative;
+      bottom: 4em;
+    }
+  }
+
+  .title {
+    color: #b07dfb;
+    h1 {
+      font-size: 3.75em;
+      list-style: 1;
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 0.875em;
+      font-style: italic;
+      font-weight: 600;
+    }
+  }
+
+  .colWide {
+    grid-column: 1 / -1;
+  }
+
+  .loboimg {
+    border-radius: 5px;
+    grid-row: span 2;
+  }
+
+  .loboimg2 {
+    border-radius: 5px;
+    grid-row: span 2;
+    position: relative;
+    bottom: 5em;
+  }
+
+  .caracteristicas {
+    display: flex;
+    align-items: flex-start;
+
+    > div {
+      width: 80px;
+      text-align: center;
+      background: linear-gradient(135deg, #8844ee, #b07dfd);
+      border-radius: 5px;
+      box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+      position: relative;
+    }
+
+    :first-child {
+      margin-right: 30px;
+    }
+
+    .numero {
+      color: #b07dfb;
+      font-size: 3em;
+      line-height: 1;
+      margin: 10px auto;
+      font-weight: 800;
+    }
+
+    .rotulo {
+      background: white;
+      border-radius: 0 0 5px 5px;
+      padding: 5px 0;
+      position: relative;
+      top: 2px;
+    }
+
+    span {
+      display: block;
+      color: #b07dfb;
+    }
+  }
+
+  .citacao {
+    grid-column: 1/-1;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 25px 5px;
+
+    p {
+      color: white;
+      font-style: italic;
+      font-weight: bold;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  .citacao,
+  .atributos {
+    align-self: start;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+    background: linear-gradient(135deg, #8844ee, #b07dfb);
+  }
+
+  .atributos {
+    li {
+      color: white;
+      font-weight: bold;
+      font-family: Courier, monospace;
+      padding: 15px;
+      border-bottom: 2px solid #b07dfb;
+    }
+
+    li +li{
+      border-top: 2px solid #b07dfb;
+    }
+  }
+
+  .anuncio {
+    grid-area: anuncio;
+    padding: 30px;
+    background: #fafbfc;
+    display: grid;
+    align-content: start;
+    grid-gap: 30px;
+
+    .anuncioimg {
+      border-radius: 5px;
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .img {
+    max-width: 100%;
+    display: block;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+}
+
+
+.footer {
+  grid-area: footer;
+  background: linear-gradient(135deg, #8844ee, #b07dfd);
+  font-family: "Montserrat", sans-serif;
+
+  p {
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-weight: 800;
+  }
+}

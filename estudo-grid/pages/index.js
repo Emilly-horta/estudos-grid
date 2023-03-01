@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Menu from "../components/Menu";
+import Main from "../components/Main";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
     <div>
-      <Menu/>
+      <Main/>
+      <Footer/>
     </div>
   )
 }
