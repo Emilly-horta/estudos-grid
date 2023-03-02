@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Vollkorn:ital,wght@0,700;1,400&display=swap");
+@import "../styles/commons";
 
 .estrutura {
   padding: 0px;
@@ -12,6 +13,24 @@
     "sidenav content anuncio"
     "footer footer footer";
 
+  @include breakpoint("big") {
+    grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav anuncio anuncio"
+      "footer footer footer";
+  }
+
+  @include breakpoint("small") {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header "
+      "sidenav"
+      "content"
+      "anuncio"
+      "footer";
+  }
+
   .header {
     grid-area: header;
     background: linear-gradient(135deg, #8844ee, #b07dfd);
@@ -20,6 +39,10 @@
     grid-template-columns: 1fr auto;
     align-items: center;
     z-index: 3;
+
+    @include breakpoint("small") {
+      grid-template-columns: auto;
+    }
   }
 
   .header nav ul {
@@ -36,6 +59,10 @@
     background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     transition: 0.1s;
+
+    @include breakpoint("small") {
+      font-size: 1em;
+    }
   }
 
   .header nav a:hover {
@@ -44,16 +71,42 @@
 
   .header li + li {
     margin-left: 30px;
+    @include breakpoint("small") {
+      margin-left: 10px;
+    }
   }
 
   .logo {
     max-width: 200px;
+
+    @include breakpoint("small") {
+      margin-bottom: 20px;
+    }
   }
 
   .sidenav {
     grid-area: sidenav;
     background: #fafbfc;
     padding: 30px;
+
+    @include breakpoint("small") {
+     padding: 0 30px;
+     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
+     -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    ul {
+      @include breakpoint("small") {
+        display: flex;
+      }
+
+      li {
+        @include breakpoint("small") {
+          flex: 1 0 60px;
+        }
+      }
+    }
 
     li a {
       display: block;
@@ -65,6 +118,10 @@
       border-radius: 5px;
       box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
       transition: 0.1s ease-out;
+
+      @include breakpoint("small") {
+        margin: 30px 30px 30px 0;
+      }
     }
 
     li a:hover {
@@ -206,7 +263,7 @@
       border-bottom: 2px solid #b07dfb;
     }
 
-    li +li{
+    li + li {
       border-top: 2px solid #b07dfb;
     }
   }
@@ -239,7 +296,6 @@
     margin-left: 10px;
   }
 }
-
 
 .footer {
   grid-area: footer;
